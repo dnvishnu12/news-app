@@ -3,11 +3,11 @@ import axios from 'axios'
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
 export async function getAllArticles() {
+  console.log('API Key:', API_KEY)
   try {
     const response = await axios.get(
       `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`,
     )
-
     if (response.data.status !== 'ok') {
       throw new Error('Failed to fetch articles')
     }
